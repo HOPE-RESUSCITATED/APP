@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,14 +6,6 @@
 <title>Narcan Partner — Hope Resuscitated</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!-- Link to PWA manifest for Google Play packaging -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0d0d14">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Narcan Partner">
-<link rel="apple-touch-icon" href="app_icon_512.png">
 <style>
 :root {
   --bg: #0d0d14;
@@ -338,6 +330,14 @@ body{display:flex;align-items:center;justify-content:center;}
 .ph-big{font-size:60px;}
 .ph-caption{font-size:14px;color:var(--text3);font-weight:600;text-align:center;padding:0 20px;}
 
+/* When an actual photo is provided the image will fill the placeholder */
+.photo-placeholder img.step-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
 .nc-pick{
   background:var(--card);border:2px solid var(--border2);border-radius:var(--radius);
   padding:18px 20px;display:flex;align-items:center;gap:16px;
@@ -505,7 +505,7 @@ body{display:flex;align-items:center;justify-content:center;}
         <div class="contact-head">Contact Hope Resuscitated</div>
         <div class="crow">📞 225-286-1608</div>
         <div class="crow">🌐 <a href="https://www.hoperesuscitated.org">www.hoperesuscitated.org</a></div>
-        <div class="crow">✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6d25021d081f081e181e0e04190c19080919080c002d0a000c0401430e0200">[email&#160;protected]</a></div>
+        <div class="crow">✉️ Hoperesuscitatedteam@gmail.com</div>
       </div>
     </div>
   </div>
@@ -695,7 +695,7 @@ body{display:flex;align-items:center;justify-content:center;}
       <div class="card" style="padding:18px">
         <div class="crow">📞 <span style="color:var(--text2)">225-286-1608</span></div>
         <div class="crow" style="margin-top:8px">🌐 <span style="color:var(--purple)">www.hoperesuscitated.org</span></div>
-        <div class="crow" style="margin-top:8px">✉️ <span style="color:var(--text2)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="672f0817021502141214040e13061302031302060a27000a060e0b4904080a">[email&#160;protected]</a></span></div>
+        <div class="crow" style="margin-top:8px">✉️ <span style="color:var(--text2)">Hoperesuscitatedteam@gmail.com</span></div>
       </div>
     </div>
   </div>
@@ -721,7 +721,7 @@ body{display:flex;align-items:center;justify-content:center;}
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── CLOCK ──
 (function tick(){
   const n=new Date(),h=n.getHours(),m=n.getMinutes().toString().padStart(2,'0');
@@ -749,13 +749,17 @@ function buildSteps(practice){
     {
       title:'Check for responsiveness',
       desc:'Shout their name and shake their shoulders firmly. If no response, rub your knuckles on their breastbone (sternum rub). Look for any signs of movement or awareness.',
-      icon:'🧍',caption:'Check for responsiveness — tap shoulders and shout name',
+      icon:'🧍',
+      photo:'step1.png',
+      caption:'Check for responsiveness — tap shoulders and shout name',
       timer:null,checklist:null,
     },
     {
       title:'Call 911 immediately',
       desc:'Call emergency services right away. Tell them you think someone is having an opioid overdose. Give your location clearly. Put the phone on speaker if possible so you can continue helping.',
-      icon:'📞',caption:'Call 911 — stay on the line with the operator',
+      icon:'📞',
+      photo:'step2.png',
+      caption:'Call 911 — stay on the line with the operator',
       timer:null,checklist:null,
     },
     {
@@ -767,13 +771,40 @@ function buildSteps(practice){
 
   if(narcanType==='nasal'){
     steps.push(
-      {title:'Prepare nasal spray',desc:'Remove the NARCAN nasal spray from packaging. Hold the device with your thumb on the bottom and first two fingers on either side of the nozzle. Do NOT prime or test the spray — each device has only one dose.',icon:'💧',caption:'Prepare nasal spray — remove from packaging carefully',timer:null,checklist:null},
-      {title:'Administer nasal spray',desc:'Insert the nozzle into one nostril until your fingers touch the bottom of the nose. Press the plunger firmly to release the full dose. The spray should go into ONE nostril only.',icon:'💨',caption:'Insert into one nostril — press plunger firmly all the way',timer:null,checklist:null}
+      {
+        title:'Prepare nasal spray',
+        desc:'Remove the NARCAN nasal spray from packaging. Hold the device with your thumb on the bottom and first two fingers on either side of the nozzle. Do NOT prime or test the spray — each device has only one dose.',
+        icon:'💧',
+        photo:'step4.png',
+        caption:'Prepare nasal spray — remove from packaging carefully',
+        timer:null,checklist:null
+      },
+      {
+        title:'Administer nasal spray',
+        desc:'Insert the nozzle into one nostril until your fingers touch the bottom of the nose. Press the plunger firmly to release the full dose. The spray should go into ONE nostril only.',
+        icon:'💨',
+        photo:'580b91a6c_step5.png',
+        caption:'Insert into one nostril — press plunger firmly all the way',
+        timer:null,checklist:null
+      }
     );
   } else {
     steps.push(
-      {title:'Prepare injectable naloxone',desc:'Open the kit and assemble the syringe. Draw up 1 mL of naloxone from the vial. Tap out any air bubbles. Ready for injection into a large muscle.',icon:'💉',caption:'Prepare the naloxone injection kit',timer:null,checklist:null},
-      {title:'Administer injection',desc:'Insert needle at 90° angle into the outer thigh (through clothing if needed) or upper arm. Push the plunger firmly all the way. Withdraw needle and apply pressure.',icon:'💉',caption:'Inject into outer thigh or upper arm muscle',timer:null,checklist:null}
+      {
+        title:'Prepare injectable naloxone',
+        desc:'Open the kit and assemble the syringe. Draw up 1 mL of naloxone from the vial. Tap out any air bubbles. Ready for injection into a large muscle.',
+        icon:'💉',
+        photo:'step3.png',
+        caption:'Prepare the naloxone injection kit',
+        timer:null,checklist:null
+      },
+      {
+        title:'Administer injection',
+        desc:'Insert needle at 90° angle into the outer thigh (through clothing if needed) or upper arm. Push the plunger firmly all the way. Withdraw needle and apply pressure.',
+        icon:'💉',
+        caption:'Inject into outer thigh or upper arm muscle',
+        timer:null,checklist:null
+      }
     );
   }
 
@@ -781,9 +812,32 @@ function buildSteps(practice){
   const timerSub = practice ? 'Practice Mode — 10 seconds' : 'Emergency Mode — Full 3 minutes';
 
   steps.push(
-    {title:'Wait and monitor',desc:'Wait 2-3 minutes for the Narcan to take effect. Watch for signs of improvement: increased breathing, movement, or responsiveness. If no response after 2-3 minutes, give a second dose if available.',icon:'⏱️',caption:'Watch for chest rise and signs of improvement',timer:{secs:timerSecs,sub:timerSub},checklist:[{icon:'💨',text:'Check breathing — look for chest rise'},{icon:'🧑‍🤝‍🧑',text:'Place in recovery position if breathing'}]},
-    {title:'Give second dose if needed',desc:"If there's no improvement after 2-3 minutes, give another dose of Narcan. Use the other nostril for nasal spray, or prepare a new injection. Continue monitoring and provide rescue breathing if trained.",icon:'🔄',caption:'Give second dose — use the other nostril',timer:null,checklist:null},
-    {title:'Recovery position',desc:'Once the person is breathing on their own, place them in the recovery position: on their side with the top leg bent, head supported, and airway open. Stay with them until help arrives.',icon:'🌿',caption:'Recovery position — on their side, airway open',timer:null,checklist:null,isDone:true}
+    {
+      title:'Wait and monitor',
+      desc:'Wait 2-3 minutes for the Narcan to take effect. Watch for signs of improvement: increased breathing, movement, or responsiveness. If no response after 2-3 minutes, give a second dose if available.',
+      icon:'⏱️',
+      caption:'Watch for chest rise and signs of improvement',
+      timer:{secs:timerSecs,sub:timerSub},
+      checklist:[{icon:'💨',text:'Check breathing — look for chest rise'},{icon:'🧑‍🤝‍🧑',text:'Place in recovery position if breathing'}]
+    },
+    {
+      title:'Give second dose if needed',
+      desc:"If there's no improvement after 2-3 minutes, give another dose of Narcan. Use the other nostril for nasal spray, or prepare a new injection. Continue monitoring and provide rescue breathing if trained.",
+      icon:'🔄',
+      caption:'Give second dose — use the other nostril',
+      timer:null,
+      checklist:null
+    },
+    {
+      title:'Recovery position',
+      desc:'Once the person is breathing on their own, place them in the recovery position: on their side with the top leg bent, head supported, and airway open. Stay with them until help arrives.',
+      icon:'🌿',
+      photo:'step8.png',
+      caption:'Recovery position — on their side, airway open',
+      timer:null,
+      checklist:null,
+      isDone:true
+    }
   );
 
   return steps;
@@ -831,7 +885,16 @@ function renderFlow(mode){
   } else {
     html+=`<div class="flow-title">${step.title}</div>`;
     html+=`<div class="flow-desc">${step.desc}</div>`;
-    if(step.icon){
+    if(step.photo){
+      // If a photo is supplied, show the image instead of the emoji icon
+      html+=`<div class="photo-placeholder">`;
+      html+=`<img src="${step.photo}" alt="${step.title}" class="step-photo">`;
+      if(step.caption){
+        html+=`<div class="ph-caption">${step.caption}</div>`;
+      }
+      html+=`</div>`;
+    } else if(step.icon){
+      // Fallback to emoji icon if no photo provided
       html+=`<div class="photo-placeholder"><div class="ph-big">${step.icon}</div><div class="ph-caption">${step.caption||''}</div></div>`;
     }
     if(step.timer){
@@ -966,17 +1029,14 @@ function recordDose(){
   document.getElementById('dt'+dCount).textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
   resetTimer();startTimer();
   document.getElementById('dose-note').style.display='block';
-  if(dCount>=3){const b=document.getElementById('dose-btn');if(b)b.disabled=true;}
+  if(dCount>=3){const b=document.getElementById('dose-btn');b.disabled=true;b.textContent='3 doses given — await EMS';b.style.background='var(--text3)';}
 }
-</script>
-<script>
-// ── SERVICE WORKER REGISTRATION ──
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('SW registered:', reg.scope))
-      .catch(err => console.log('SW registration failed:', err));
-  });
+
+let breathOn=false;
+function toggleBreath(){
+  breathOn=!breathOn;
+  document.getElementById('b-ring').classList.toggle('active',breathOn);
+  document.getElementById('b-lbl').textContent=breathOn?'Give 1 breath per pulse':'Tap to start';
 }
 </script>
 </body>
