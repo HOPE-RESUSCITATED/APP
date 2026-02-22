@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.hoperesuscitated.narcanpartner",
+        "sha256_cert_fingerprints": ["EF:63:44:06:7B:00:87:5B:F3:01:C7:89:6F:D0:91:86:3A:66:EF:0D:89:E3:49:16:A9:B1:19:7A:21:C7:2C:8E"]
+      }
+    }]
