@@ -1,5 +1,8 @@
 {
   "appId": "com.hoperesuscitated.overdosepartner",
   "appName": "Overdose Partner",
-  "webDir": "NarcanPWA"
+  "webDir": "NarcanPWA",
+  "ios": {
+    "contentInset": "automatic"
+  }
 }
