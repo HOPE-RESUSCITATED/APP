@@ -3,14 +3,34 @@
   "short_name": "Narcan Partner",
   "description": "Overdose Response Guide to help administer Naloxone/Narcan during an emergency.",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0d0d14",
   "theme_color": "#0d0d14",
+  "lang": "en-US",
+  "categories": ["health", "medical"],
   "icons": [
     {
       "src": "app_icon_512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "app_icon_512.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Emergency Response",
+      "short_name": "Emergency",
+      "description": "Start emergency overdose response now",
+      "url": "./index.html#emergency",
+      "icons": [{ "src": "app_icon_512.png", "sizes": "512x512" }]
     }
   ]
 }
